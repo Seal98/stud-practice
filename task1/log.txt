@@ -1,0 +1,11 @@
+commit 032c7c836779d24d586ca5cccc0bf2046caf92b0 (HEAD -> master)
+Author: Seal <a.i.karpov98@gmail.com>
+Date:   Sun Feb 11 13:03:18 2018 +0300
+
+    status.txt
+
+commit e9f705d0a041ca5a99c03e10095817913993b1a2
+Author: Seal <a.i.karpov98@gmail.com>
+Date:   Sun Feb 11 12:59:39 2018 +0300
+
+    add .gitignore
