@@ -282,12 +282,8 @@ var photoPosts = [
     }
 
     function removePhotoPost(idForRem){
-        for(var i=0;i<photoPosts.length;i++){
-            if(photoPosts[i].id === idForRem){
-                photoPosts[i].postVisibility = false;
-                return true;
-            }
-        }
+        var postOfId = getPhotoPost(idForRem);
+        postOfId.postVisibility = false;
         console.log("Пост для удаления не найден");
         return false;
     }
