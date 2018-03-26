@@ -93,7 +93,8 @@
 
     ];
     var postForFilter = {
-        author: 'Misha'
+        author: 'Misha',
+        hashTags: ["#AVATARBESTANIME"]
     };
     console.log("\n\nСортировка и фильтрация постов. id найденных: \n");
     var sortedArrOfPosts = getPhotoPosts(1, 2, postForFilter);
@@ -125,7 +126,7 @@
     };
     console.log("Добавление нового поста с предварительной проверкой: " + addPhotoPost(newPost));
     var postForEditing = {
-        description: 'NARUTO. Just Naruto(one more Naruto)',
+        description: 'NARUTO best anime (one more Naruto)',
         createdAt: new Date('2007-12-12T12:12:12')
     }
     console.log("Изменение поста по id: " + editPhotoPost("1", postForEditing));
@@ -187,13 +188,25 @@
                     return post.createdAt === filterConfig.createdAt;
                 });
             }
-            sortedArrOfPosts = sortedArrOfPosts.slice(postStart, number + postStart).sort(dateComparator);
+            if (filterConfig.hashTags) {
+                sortedArrOfPosts = sortedArrOfPosts.filter(function (post) {
+                    for (let hashTagsOfPost of post.hashTags) {
+                        for (let hashTagsOfFilter of [].concat(filterConfig.hashTags)) {
+                            if (hashTagsOfPost === hashTagsOfFilter) {
+                                return true;
+                            }
+                        }
+                    }
+                });
+            }
+            sortedArrOfPosts = sortedArrOfPosts.sort(dateComparator).slice(postStart, number + postStart);
+
             return sortedArrOfPosts;
         }
     }
 
-    function dateComparator(date1, date2) {
-        return date1.createdAt - date2.createdAt;
+    function dateComparator(post1, post2) {
+        return post1.createdAt - post2.createdAt;
     }
 
     function getPhotoPost(idOfPost) {
@@ -212,10 +225,36 @@
                 return postForCheck.id === post.id;
             })) {
             console.log("id не уникальный");
+            return false;
         }
 
         if (typeof postForCheck.description !== "string" || postForCheck.description.length > 200 || postForCheck.description === "") {
             console.log("Неверный description");
+            return false;
+        }
+        if (typeof postForCheck.author !== "string" || postForCheck.author === "") {
+            console.log("Поле author пустое");
+            return false;
+        }
+        if (!(postForCheck.createdAt instanceof Date) || ((postForCheck.createdAt).toString() === 'Invalid Date')) {
+            console.log("Поле даты создания не введено, либо имеет неправильную структуру");
+            return false;
+        }
+        if (typeof postForCheck.photoLink !== "string" || postForCheck.photoLink === "") {
+            console.log("Поле photoLink пустое");
+            return false;
+        }
+        if (!(postForCheck.hashTags instanceof Array)) {
+            console.log("Структура поля hashTags не верна");
+            return false;
+        }
+        return true;
+    }
+
+    function validateForEditing(postForCheck) {
+        if (typeof postForCheck.description !== "string" || postForCheck.description.length > 200 || postForCheck.description === "") {
+            console.log("Неверный description");
+
             return false;
         }
         if (typeof postForCheck.author !== "string" || postForCheck.author === "") {
@@ -249,61 +288,43 @@
 
     function editPhotoPost(idForEd, postForEd) {
         var postOfId = getPhotoPost(idForEd);
-        if (!validatePhotoPost(postOfId)) {
+        if (!postOfId) {
             return false;
         }
         var postCopy = JSON.parse(JSON.stringify(postOfId));
-        if (postForEd.description) {
-            if (typeof postForEd.description !== "string" || postForEd.description.length > 200 || postForEd.description === "") {
-                return false;
-            }
+        if (postForEd.description != null) {
             postCopy.description = postForEd.description;
         }
-        if (postForEd.author) {
-            if (typeof postForEd.author !== "string" || postForEd.author === "") {
-                return false;
-            }
+        if (postForEd.author != null) {
             postCopy.author = postForEd.author;
         }
-        if (postForEd.createdAt) {
-            if (!(postForEd.createdAt instanceof Date) || ((postForEd.createdAt).toString() === 'Invalid Date')) {
-                return false;
-            }
+        if (postForEd.createdAt != null) {
             postCopy.createdAt = postForEd.createdAt;
         }
-        if (postForEd.photoLink) {
-            if (typeof postForEd.photoLink !== "string" || postForEd.photoLink === "") {
-                return false;
-            }
+        if (postForEd.photoLink != null) {
             postCopy.photoLink = postForEd.photoLink;
         }
-        if (postForEd.hashTags) {
-            if (!(postForEd.hashTags instanceof Array)) {
-                return false;
-            }
+        if (postForEd.hashTags != null) {
             postCopy.hashTags = postForEd.hashTags;
         }
-        clonePost(postOfId, postCopy);
 
-        return true;
+        if (validateForEditing(postCopy)) {
+            changePostData(postOfId, postCopy);
+            return true;
+        }
+        return false;
     }
 
-    function clonePost(post1, post2){
-        if(post2.description){
-            post1.description = post2.description;
-        }
-        if(post2.author){
-            post1.author = post2.author;
-        }
-        if(post2.createdAt){
-            post1.createdAt = post2.createdAt;
-        }
-        if(post2.photoLink){
-            post1.photoLink = post2.photoLink;
-        }
-        if(post2.hashTags){
-            post1.hashTags = post2.hashTags;
-        }
+    function changePostData(post1, post2) {
+        post1.description = post2.description;
+
+        post1.author = post2.author;
+
+        post1.createdAt = post2.createdAt;
+
+        post1.photoLink = post2.photoLink;
+
+        post1.hashTags = post2.hashTags;
     }
 
     function removePhotoPost(idForRem) {
