@@ -1,37 +1,22 @@
 var domBlockOfFunc = (function () {
-    for (var i = 0; i < photoPosts.length; i++) {
-        addPhotoPost(photoPosts[i]);
-    }
-    removePhotoPost(2);
 
-    function addPhotoPost(post) {
-        let cards = document.getElementById("posts");
-        let photoPost = document.createElement("div");
-        photoPost.className = "cards-content";
-        photoPost.id = post.id;
-        photoPost.innerHTML = createDomHTML(post);
+    function addPhotoPostDom(post) {
+        if(post.postVisibility) {
+            let cards = document.getElementById("posts");
+            let photoPost = document.createElement("div");
+            photoPost.className = "cards-content";
+            photoPost.id = post.id;
+            photoPost.innerHTML = createDomHTML(post);
 
-        cards.appendChild(photoPost);
+            cards.appendChild(photoPost);
+        }
     }
 
-    function removePhotoPost(idOfPost) {
+    function removePhotoPostDom(idOfPost) {
         let photoPost = document.getElementById(idOfPost);
         let cards = document.getElementById("posts");
         cards.removeChild(photoPost);
     }
-
-    var newPost = {
-        id: '10',
-        description: 'NARUTO best anime (again new post(sorry))',
-        createdAt: new Date('2013-12-12T12:12:12'),
-        author: 'Misha2k19',
-        photoLink: 'img/naruto.png',
-        postVisibility: true,
-        hashTags: ["#JUSTCause"],
-        likes: ["HaroshUbicaMaladec"]
-    };
-
-    editPhotoPost(1, newPost);
 
     function createDomHTML(post) {
         return `<div class="post-header">
@@ -51,10 +36,14 @@ var domBlockOfFunc = (function () {
             </div>`;
     }
 
-    function editPhotoPost(idOfPost, editedPost) {
+    function editPhotoPostDom(idOfPost, editedPost) {
         let photoPost = document.getElementById(idOfPost);
         let cards = document.getElementById("posts");
-
         photoPost.innerHTML = createDomHTML(editedPost);
+    }
+    return{
+        addPhotoPostDom,
+        removePhotoPostDom,
+        editPhotoPostDom
     }
 }());
