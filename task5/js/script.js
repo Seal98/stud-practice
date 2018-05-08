@@ -1,181 +1,20 @@
-var photoPosts = [
-    {
-        id: '1',
-        description: 'NARUTO best anime',
-        createdAt: new Date('2014-12-12T12:12:12'),
-        author: 'Misha',
-        photoLink: 'img/naruto.png',
-        postVisibility: true,
-        hashTags: ["#NARUTOBESTANIME"],
-        likes: ["Alex"]
-    },
-
-    {
-        id: '2',
-        description: 'AVATAR best anime',
-        createdAt: new Date('2015-12-12T12:12:12'),
-        author: 'Misha',
-        photoLink: 'img/avatar.png',
-        postVisibility: true,
-        hashTags: ["#AVATARBESTANIME"],
-        likes: ["Egor"]
-    }, {
-        id: '3',
-        description: 'SHAMAN-KING best anime',
-        createdAt: new Date('2012-12-12T12:12:12'),
-        author: 'Misha2019',
-        photoLink: 'img/sham.png',
-        postVisibility: true,
-        hashTags: ["#SHAMANKINGBESTANIME"],
-        likes: ["Pomeedorka"]
-    },
-    {
-        id: '4',
-        description: 'NARURO best anime',
-        createdAt: new Date('2013-12-12T12:12:12'),
-        author: 'Misha20',
-        photoLink: 'img/naruto.png',
-        postVisibility: true,
-        hashTags: ["#NARUTOBESTANIME"],
-        likes: ["Jora"]
-    },
-    {
-        id: '5',
-        description: 'AVATAR best anime',
-        createdAt: new Date('2018-12-12T12:12:12'),
-        author: 'Misha',
-        photoLink: 'img/avatar.png',
-        postVisibility: true,
-        hashTags: ["#AVATARBESTANIME"],
-        likes: ["Jaga"]
-    },
-    {
-        id: '6',
-        description: 'SHAMAN-KING best anime',
-        createdAt: new Date('2017-12-12T12:12:12'),
-        author: 'Misha22',
-        photoLink: 'img/sham.png',
-        postVisibility: true,
-        hashTags: ["#SHAMANKINGBESTANIME"],
-        likes: ["Jaguar"]
-    },
-    {
-        id: '7',
-        description: 'NARUTO best anime',
-        createdAt: new Date('2016-12-12T12:12:12'),
-        author: 'Misha23',
-        photoLink: 'img/naruto.png',
-        postVisibility: true,
-        hashTags: ["#NARUTOBESTANIME"],
-        likes: ["Jagorka"]
-    },
-    {
-        id: '8',
-        description: 'AVATAR best anime',
-        createdAt: new Date('2091-12-12T12:12:12'),
-        author: 'Misha',
-        photoLink: 'img/avatar.png',
-        postVisibility: true,
-        hashTags: ["#AVATARBESTANIME"],
-        likes: ["Igor"]
-    },
-    {
-        id: '9',
-        description: 'SHAMAN-KING best anime',
-        createdAt: new Date('2020-12-12T12:12:12'),
-        author: 'Misha',
-        photoLink: 'img/sham.png',
-        postVisibility: true,
-        hashTags: ["#SHAMANKINGBESTANIME"],
-        likes: ["Egr"]
-    },
-
-];
-
+var photoPosts = [];
+var userName;
 var mainBlockOfFunc = (function () {
-    for (var i = 0; i < photoPosts.length; i++) {
-        domBlockOfFunc.addPhotoPostDom(photoPosts[i]);
-    }
-    var postForFilter = {
-        author: 'Misha',
-        hashTags: ["#AVATARBESTANIME"]
-    };
-    console.log("\n\nСортировка и фильтрация постов. id найденных: \n");
-    var sortedArrOfPosts = getPhotoPosts(1, 2, postForFilter);
-    for (var i = 0; i < sortedArrOfPosts.length; i++) {
-        console.log("id: " + sortedArrOfPosts[i].id);
-    }
-    var postOfId = getPhotoPost("5");
-    console.log("Пост по id:  " + postOfId.createdAt);
-    var postForVal = {
-        id: '15',
-        description: 'NARUTO best anime (one more post)',
-        createdAt: new Date('2012-12-12T12:12:12'),
-        author: 'Misha2018',
-        photoLink: 'img/naruto.png',
-        postVisibility: true,
-        hashTags: ["#JUSTNARUTO"],
-        likes: ["Maladec"]
-    };
-    console.log("Проверка поста на валидность: " + validatePhotoPost(postForVal));
-    var newPost = {
-        id: '10',
-        description: 'NARUTO best anime (one more post)',
-        createdAt: new Date('2012-12-12T12:12:12'),
-        author: 'Misha2018',
-        photoLink: 'img/naruto.png',
-        postVisibility: true,
-        hashTags: ["#JUSTNARUTO"],
-        likes: ["Maladec"]
-    };
-    console.log("Добавление нового поста с предварительной проверкой: " + addPhotoPost(newPost));
-    var postForEditing = {
-        description: 'NARUTO best anime (one more Naruto)',
-        createdAt: new Date('2005-12-12T12:12:12')
-    }
-    console.log("Изменение поста по id: " + editPhotoPost("1", postForEditing));
-
-    for (var i = 0; i < photoPosts.length; i++) {
-        if (photoPosts[i].postVisibility) {
-            console.log("id: " + photoPosts[i].id + "\n");
-            console.log("description: " + photoPosts[i].description + "\n");
-            console.log("createdAt: " + photoPosts[i].createdAt + "\n");
-            console.log("author: " + photoPosts[i].author + "\n");
-            console.log("photoLink: " + photoPosts[i].photoLink + "\n");
-            console.log("hashTags:\n");
-            for (var j = 0; j < photoPosts[i].hashTags.length; j++) {
-                console.log("           " + photoPosts[i].hashTags[j] + "\n");
-            }
-            console.log("likes:\n");
-            for (var j = 0; j < photoPosts[i].likes.length; j++) {
-                console.log("           " + photoPosts[i].likes[j] + "\n");
-            }
-            console.log("\n");
+getAllPostFromLocalStorage();
+    function getAllPostFromLocalStorage(){
+        var values = [];
+        var keys = Object.keys(localStorage);
+        var i = keys.length;
+        var counter = i;
+        while (counter>0) {
+            photoPosts[i-counter] = JSON.parse(localStorage.getItem(keys[i-counter]));
+            counter--;
+        }
+        for(var k=0;k<photoPosts.length;k++){
+            domBlockOfFunc.addPhotoPostDom(photoPosts[k]);
         }
     }
-    console.log("--------------------------------\n\n");
-    console.log("Удаление поста по id: " + removePhotoPost("5"));
-
-    for (var i = 0; i < photoPosts.length; i++) {
-        if (photoPosts[i].postVisibility) {
-            console.log("id: " + photoPosts[i].id + "\n");
-            console.log("description: " + photoPosts[i].description + "\n");
-            console.log("createdAt: " + photoPosts[i].createdAt + "\n");
-            console.log("author: " + photoPosts[i].author + "\n");
-            console.log("photoLink: " + photoPosts[i].photoLink + "\n");
-            console.log("hashTags:\n");
-            for (var j = 0; j < photoPosts[i].hashTags.length; j++) {
-                console.log("           " + photoPosts[i].hashTags[j] + "\n");
-            }
-            console.log("likes:\n");
-            for (var j = 0; j < photoPosts[i].likes.length; j++) {
-                console.log("           " + photoPosts[i].likes[j] + "\n");
-            }
-            console.log("\n");
-        }
-    }
-
-    removePhotoPost("2");
 
     function getPhotoPosts(postStart, number, filterConfig) {
         if (postStart + number > photoPosts.length || postStart < 0) {
@@ -184,26 +23,28 @@ var mainBlockOfFunc = (function () {
         }
         else {
             var sortedArrOfPosts = photoPosts;
-            if (filterConfig.author) {
-                sortedArrOfPosts = sortedArrOfPosts.filter(function (post) {
-                    return post.author === filterConfig.author;
-                });
-            }
-            if (filterConfig.createdAt) {
-                sortedArrOfPosts = sortedArrOfPosts.filter(function (post) {
-                    return post.createdAt === filterConfig.createdAt;
-                });
-            }
-            if (filterConfig.hashTags) {
-                sortedArrOfPosts = sortedArrOfPosts.filter(function (post) {
-                    for (let hashTagsOfPost of post.hashTags) {
-                        for (let hashTagsOfFilter of [].concat(filterConfig.hashTags)) {
-                            if (hashTagsOfPost === hashTagsOfFilter) {
-                                return true;
+            if(typeof filterConfig !== 'undefined'){
+                if (filterConfig.author) {
+                    sortedArrOfPosts = sortedArrOfPosts.filter(function (post) {
+                        return post.author === filterConfig.author;
+                    });
+                }
+                if (filterConfig.createdAt) {
+                    sortedArrOfPosts = sortedArrOfPosts.filter(function (post) {
+                        return post.createdAt === filterConfig.createdAt;
+                    });
+                }
+                if (filterConfig.hashTags) {
+                    sortedArrOfPosts = sortedArrOfPosts.filter(function (post) {
+                        for (let hashTagsOfPost of post.hashTags) {
+                            for (let hashTagsOfFilter of [].concat(filterConfig.hashTags)) {
+                                if (hashTagsOfPost.search(hashTagsOfFilter) !== -1) {
+                                    return true;
+                                }
                             }
                         }
-                    }
-                });
+                    });
+                }
             }
             sortedArrOfPosts = sortedArrOfPosts.sort(dateComparator).slice(postStart, number + postStart);
 
@@ -288,7 +129,7 @@ var mainBlockOfFunc = (function () {
         }
         else {
             photoPosts.push(newPost);
-            domBlockOfFunc.addPhotoPostDom(newPost);
+            domBlockOfFunc.addNewPhotoPostDom(newPost);
             return true;
         }
     }
@@ -299,25 +140,24 @@ var mainBlockOfFunc = (function () {
             return false;
         }
         var postCopy = JSON.parse(JSON.stringify(postOfId));
-        if (postForEd.description != null) {
+        postCopy.createdAt = postOfId.createdAt;
+        if (postForEd.description) {
             postCopy.description = postForEd.description;
         }
-        if (postForEd.author != null) {
+        if (postForEd.author) {
             postCopy.author = postForEd.author;
         }
-        if (postForEd.createdAt != null) {
+        if (postForEd.createdAt) {
             postCopy.createdAt = postForEd.createdAt;
         }
-        if (postForEd.photoLink != null) {
+        if (postForEd.photoLink) {
             postCopy.photoLink = postForEd.photoLink;
         }
-        if (postForEd.hashTags != null) {
+        if (postForEd.hashTags) {
             postCopy.hashTags = postForEd.hashTags;
         }
-
         if (validateForEditing(postCopy)) {
             changePostData(postOfId, postCopy);
-            //alert("JS "+idForEd);
             domBlockOfFunc.editPhotoPostDom(idForEd, postCopy);
             return true;
         }
@@ -350,7 +190,11 @@ var mainBlockOfFunc = (function () {
     }
 
     return {
-        addPhotoPost
+        addPhotoPost,
+        removePhotoPost,
+        getPhotoPosts,
+        editPhotoPost,
+        getPhotoPost
     }
 }());
 

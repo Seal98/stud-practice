@@ -1,0 +1,423 @@
+html{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+.main{
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-header{
+    width: 100vw;
+    height: 8vh;
+    border: none;
+    background: url("../img/header.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+
+.ver-button{
+    width: 10%;
+    height: 50%;
+    margin: 1% 0 0 87%;
+    background-color: rgb(0, 163, 232);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.1vw;
+}
+
+.filter-page-part{
+    width: 100vw;
+    height: 85vh;
+    border: none;
+    background: url("../img/bl.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+
+.question-user{
+    width: 20%;
+    height: 10.5%;
+    background-color: rgb(200, 191, 231);
+    float:left;
+    margin-top: 1.6%;
+    margin-left: 4%;
+    border-radius: 10px;
+    border: 3px solid #000;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.3vw;
+}
+
+.filters-block{
+    width: 30%;
+    height: 16.5%;
+    border: 3px solid #000;
+    float:left;
+    margin-top: 0.6%;
+    margin-left: 6%;
+    border-radius: 10px;
+    background-color: rgb(200, 191, 231);
+    padding: 0.2%;
+    padding-top: 0.7%;
+}
+.filter-single{
+    width:100%;
+    height:30%;
+}
+#cb-author{
+   width:3vw;
+    height: 3vh;
+    margin-top:4.4%;
+}
+.cb{
+    float:left;
+    width:15%;
+    height:50%;
+    margin-left: 0%;
+}
+.label-filter{
+    padding:1.2%;
+    width:35%;
+    height:50%;
+    float:left;
+}
+.filter-text-input{
+        margin-top:1%;
+        font-size: 0.8vw;
+}
+
+.text-of-filters{
+    font-size:1.1vw;
+}
+
+.filter-input-part{
+    height:95%;
+    width:80%;
+
+    float: left;
+}
+#cb-date{
+    width:3vw;
+    height: 3vh;
+}
+#cb-hashtag{
+    width:3vw;
+    height: 3vh;
+}
+.block-filter-button{
+    height: 95%;
+    width:17%;
+    float:right;
+}
+.filter-button{
+    width: 85%;
+    height: 50.5%;
+    background-color: rgb(200, 191, 231);
+    margin-top: 31.4%;
+    margin-left: 6%;
+    border-radius: 0.6vw;
+    font-size: 1.0vw;
+    outline: none;
+}
+.add-post-button{
+    width: 17%;
+    height: 10.5%;
+    background-color: rgb(200, 191, 231);
+    float: right;
+    margin-top: 1.6%;
+    margin-right: 4%;
+    border-radius: 1.6vw;
+    font-size: 1.7vw;
+    outline: none;
+    visibility: hidden;
+}
+.cards {
+
+    width: 35vw;
+    height: 100vw;
+    position: absolute;
+    top: -44%;
+    left: 32.5%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transform: rotate(270deg);
+}
+.cards::-webkit-scrollbar {
+    display: none;
+}
+.cards-content {
+    background-color: rgb(200, 191, 231);
+    width: 23vw;
+    height: 30vw;
+    margin:  3px auto;
+    transform: rotate(90deg);
+    border-radius: 10px;
+    border: 3px solid #000;
+
+}
+
+.post-header{
+
+    width: 95%;
+    height: 10%;
+    margin:auto;
+
+}
+
+.edit-button{
+    outline: none;
+    width: 15%;
+    height: 90%;
+    float:right;
+    margin-top:1%;
+    visibility: hidden;
+}
+.post-hashtags{
+    margin-left: 6%;
+    width: 55%;
+    height: 90%;
+    display:inline-block;
+    font-size: 1vw;
+    font-style:italic;
+    overflow:hidden;
+    margin-top: 2%;
+}
+.delete-button{
+    outline: none;
+    width: 15%;
+    height: 90%;
+    margin-left: 1%;
+    margin-top:2%;
+    float: left;
+    visibility: hidden;
+}
+.del-add-post-image{
+    width: 95%;
+    height: 95%;
+
+}
+.like-post-image{
+    width: 95%;
+    height: 95%;
+}
+.like-button{
+    outline: none;
+    width: 23%;
+    margin-left: 2%;
+    margin-top: 2%;
+    float:left;
+    visibility: hidden;
+}
+.like-and-comment{
+    width: 98%;
+    height: 16.5%;
+}
+.image-post{
+    margin-top: 1%;
+    margin-left: 14%;
+        width: 70%;
+}
+.post-body{
+    height: 66%;
+    width: 100%;
+}
+.comments{
+    width: 67%;
+    height: 72.6%;
+    margin-left: 4%;
+    margin-top: 2%;
+    border: 0.2vw solid black;
+    border-radius: 1vw;
+    padding: 1%;
+    background-color: rgb(200, 191, 231);
+    font-size: 1vw;
+    overflow:hidden;
+    float: left;
+}
+.logged-user{
+
+    height: 80%;
+    width: 15%;
+    margin-left: 83%
+}
+.user-avatar{
+ height:88%;
+    width:22%;
+    margin-top: 3%;
+    background: url("../img/av1.png") no-repeat;
+    background-size: 100% 100%;
+    float: left
+}
+.user-name{
+    margin-top: 5%;
+    float:left;
+    height:88%;
+    width:76%;
+    text-align: center;
+    font-size: 2vw;
+    font-weight:bold
+
+}
+.post-data{
+
+    margin-top: 1%;
+    margin-left: 2%;
+    width: 70%;
+    float: left;
+    height: 6%;
+    background-color: rgb(200, 191, 231);
+    text-align: left;
+    font-size: 1.3vw;
+    font-style:italic
+}
+.post-name{
+    margin-top: 1%;
+    margin-left: 1%;
+    width: 25%;
+    height: 6%;
+    float: left;
+    background-color: rgb(200, 191, 231);
+    text-align: right;
+    font-size: 1.3vw;
+    font-weight:bold
+}
+.main-footer{
+    width: 100vw;
+    height: 7vh;
+    border: none;
+    background: url("../img/footer.jpg") no-repeat;
+    background-size: 100% 100%;
+    alignment: bottom;
+    padding-top: 1%;
+    padding-left: 0.5%;
+}
+.text-footer-date{
+    opacity: 0.7;
+    font-size: 1.0vw;
+    float: left;
+}
+
+.text-footer-creator{
+    opacity: 0.9;
+    font-size: 1.0vw;
+    margin-left: 79%;
+}
+.auth-button{
+    width: 57%;
+    height: 60.5%;
+    background-color: rgb(200, 191, 231);
+    float: right;
+    margin-top: 5%;
+    margin-right: 1%;
+    border-radius: 0.6vw;
+    font-size: 0.9vw;
+    outline: none;
+}
+.submit-auth-button{
+    width: 25%;
+    height: 15%;
+    background-color: rgb(73, 113, 231);
+    margin-top: 5%;
+    margin-left: 37.5%;
+    border-radius: 0.6vw;
+    font-size: 0.9vw;
+    outline: none;
+}
+.cancel-auth-button{
+    width: 25%;
+    height: 15%;
+    background-color: rgb(73, 113, 231);
+    margin-top: 5%;
+    float: right;
+    border-radius: 0.6vw;
+    font-size: 0.9vw;
+    outline: none;
+}
+.auth-window{
+    position: absolute;
+    top: 20%;
+    left: 39%;
+    width: 22%;
+    height: 30.5%;
+    border-radius: 0.6vw;
+    padding: 0.5%;
+    border: 3px solid yellow;
+    background-color: rgb(200, 191, 231);
+    z-index: 100;
+}
+.ed-window{
+    position: absolute;
+    top: 20%;
+    left: 39%;
+    width: 22%;
+    height: 30.5%;
+    border-radius: 0.6vw;
+    padding: 0.5%;
+    border: 3px solid yellow;
+    background-color: rgb(200, 191, 231);
+    z-index: 100;
+}
+.back-button-edit{
+    width: 30%;
+    height: 51%;
+    border: solid #090400;
+    float: right;
+    alignment: right;
+    background-color: rgb(91, 164, 231);
+    cursor: pointer;
+    outline: none;
+}
+.user-name-edit{
+    float: left;
+    font-size: 1.6vw;
+    font-weight: bold;
+    margin-top: 0;
+    color: #429eff;
+}
+.edit-header{
+    width: 100%;
+    height: 25%;
+}
+.edit-main{
+    width: 100%;
+    height:30%;
+}
+
+.edit-footer{
+    width: 100%;
+    height: 25%;
+}
+.description-edit{
+    height: 100%;
+    width: 65%;
+    float: left;
+    margin-top: 0px;
+}
+.submit-button-edit{
+    height: 112%;
+    width: 30%;
+    border: 2px solid #090400;
+    float: right;
+    background-color: rgb(91, 164, 231);
+    cursor: pointer;
+    outline: none;
+}
+.input-text-image-edit{
+    width: 55%;
+    height: 16%;
+    alignment: left;
+}
+.font-image-edit{
+    float: left;
+    font-size: 0.8vw;
+    font-weight: bold;
+    margin-top: 0;
+    color: #429eff;
+}
