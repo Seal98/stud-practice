@@ -110,6 +110,7 @@ getAllPostFromLocalStorage();
         }
         if (!(postForCheck.createdAt instanceof Date) || ((postForCheck.createdAt).toString() === 'Invalid Date')) {
             console.log("Поле даты создания не введено, либо имеет неправильную структуру");
+            alert(postForCheck.createdAt);
             return false;
         }
         if (typeof postForCheck.photoLink !== "string" || postForCheck.photoLink === "") {
@@ -140,15 +141,11 @@ getAllPostFromLocalStorage();
             return false;
         }
         var postCopy = JSON.parse(JSON.stringify(postOfId));
-        postCopy.createdAt = postOfId.createdAt;
         if (postForEd.description) {
             postCopy.description = postForEd.description;
         }
         if (postForEd.author) {
             postCopy.author = postForEd.author;
-        }
-        if (postForEd.createdAt) {
-            postCopy.createdAt = postForEd.createdAt;
         }
         if (postForEd.photoLink) {
             postCopy.photoLink = postForEd.photoLink;
@@ -156,6 +153,7 @@ getAllPostFromLocalStorage();
         if (postForEd.hashTags) {
             postCopy.hashTags = postForEd.hashTags;
         }
+        postCopy.createdAt = new Date();
         if (validateForEditing(postCopy)) {
             changePostData(postOfId, postCopy);
             domBlockOfFunc.editPhotoPostDom(idForEd, postCopy);

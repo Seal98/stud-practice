@@ -149,6 +149,7 @@ var domBlockOfFunc = (function () {
     function deletePostDom(idOfButton) {
         var idOfPost = idOfButton.replace("del", '');
         mainBlockOfFunc.removePhotoPost(idOfPost);
+        localStorage.removeItem(mainBlockOfFunc.getPhotoPost(idOfPost));
     }
 
     function addPhotoPostDom(post) {
@@ -160,7 +161,7 @@ var domBlockOfFunc = (function () {
             photoPost.innerHTML = createDomHTML(post);
 
             cards.appendChild(photoPost);
-
+            localStorage.setItem(post.id, JSON.stringify(post));
         }
     }
 
@@ -176,6 +177,7 @@ var domBlockOfFunc = (function () {
     }
 
     function createDomHTML(post) {
+
         var idOfDeleteButton = 'del';
         var idOfLikeButton = 'l';
         var idOfEditButton = 'e';
@@ -216,6 +218,7 @@ var domBlockOfFunc = (function () {
         let photoPost = document.getElementById(idOfPost);
         let cards = document.getElementById("posts");
         photoPost.innerHTML = createDomHTML(editedPost);
+        localStorage.setItem(editedPost.id, JSON.stringify(editedPost));
         activateButtons(idOfPost);
     }
 
