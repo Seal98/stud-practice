@@ -95,6 +95,10 @@ for (var i = 0; i < basicPosts.length; i++) {
     addPostToLocalStorage(basicPosts[i]);
 }
 
+function addCurrentUserToLocalStorage(userName){
+    localStorage.setItem("user", userName);
+}
+
 function addPostToLocalStorage(post) {
     localStorage.setItem(post.id, JSON.stringify(post));
 }

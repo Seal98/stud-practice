@@ -9,9 +9,9 @@ var domBlockOfFunc = (function () {
         windowForAuth.className = 'auth-window';
         windowForAuth.id = 'auth-window'
         windowForAuth.innerHTML = `<p align='center'>Авторизация</p>
-            <p style='padding: 0 15px'>Логин : &nbsp&nbsp<input type='text' id='login-field'></p>
+            <p class="login-password-font-style">Логин : &nbsp&nbsp<input type='text' id='login-field'></p>
             <br>
-            <p style='padding: 0 15px'>Пароль : <input type='text' id='password-field'></p>
+            <p class="login-password-font-style">Пароль : <input type='text' id='password-field'></p>
             <button class='submit-auth-button' onclick='domBlockOfFunc.finishAuth();return false;'>OK</button>
             <button class='cancel-auth-button' onclick='domBlockOfFunc.cancelAuth();return false;'>Отмена</button>`;
         posts.appendChild(windowForAuth);
@@ -113,6 +113,7 @@ var domBlockOfFunc = (function () {
         posts.appendChild(loggedUser);
         var allPhotoPosts = mainBlockOfFunc.getPhotoPosts(0, photoPosts.length);
         userName = loginValue;
+       //addCurrentUserToLocalStorage(userName);
         if(userName){
             let addPostButton = document.getElementById('add-post-button');
             addPostButton.style.visibility = 'visible';
@@ -206,11 +207,11 @@ var domBlockOfFunc = (function () {
 
     function likePostDom(idOfPost){
         var imageLike = document.getElementById('im'+idOfPost.replace('l',''));
-        if(imageLike.src === 'http://localhost:63342/untitled/img/like.svg'){
-            imageLike.src = 'http://localhost:63342/untitled/img/liked.svg';
+        if(imageLike.src === 'img/like.svg'){
+            imageLike.src = 'img/liked.svg';
         }
         else{
-            imageLike.src = 'http://localhost:63342/untitled/img/like.svg';
+            imageLike.src = 'img/like.svg';
         }
     }
 
@@ -239,9 +240,6 @@ var domBlockOfFunc = (function () {
             var valueOfHashTagsFilter = document.getElementById('text-field-filter-hashtags').value;
             filterParam.hashTags[0] = valueOfHashTagsFilter;
         }
-        alert(filterParam.author);
-        alert(filterParam.createdAt);
-        alert(filterParam.hashTags[0]);
         var sortedArrOfPosts = mainBlockOfFunc.getPhotoPosts(0,photoPosts.length,filterParam);
         var posts = document.getElementById('posts');
         while(posts.firstChild){
