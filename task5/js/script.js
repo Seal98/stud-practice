@@ -1,7 +1,7 @@
 var photoPosts = [];
 var userName;
 var mainBlockOfFunc = (function () {
-getAllPostFromLocalStorage();
+    getAllPostFromLocalStorage();
     function getAllPostFromLocalStorage(){
         var values = [];
         var keys = Object.keys(localStorage);
@@ -18,7 +18,7 @@ getAllPostFromLocalStorage();
 
     function getPhotoPosts(postStart, number, filterConfig) {
         if (postStart + number > photoPosts.length || postStart < 0) {
-            console.log("Нельзя вывести столько постов. Промежуток вывода не совпадает с количеством постов");
+            console.log('Нельзя вывести столько постов. Промежуток вывода не совпадает с количеством постов');
             return null;
         }
         else {
@@ -63,62 +63,62 @@ getAllPostFromLocalStorage();
     }
 
     function validatePhotoPost(postForCheck) {
-        if (typeof postForCheck.id !== "string" || postForCheck.id === "") {
-            console.log("Пустое поле id");
+        if (typeof postForCheck.id !== 'string' || postForCheck.id === '') {
+            console.log('Пустое поле id');
             return false;
         }
 
         if (photoPosts.some(function checkUniqueness(post) {
                 return postForCheck.id === post.id;
             })) {
-            console.log("id не уникальный");
+            console.log('id не уникальный');
             return false;
         }
 
-        if (typeof postForCheck.description !== "string" || postForCheck.description.length > 200 || postForCheck.description === "") {
-            console.log("Неверный description");
+        if (typeof postForCheck.description !== 'string' || postForCheck.description.length > 200 || postForCheck.description === '') {
+            console.log('Неверный description');
             return false;
         }
-        if (typeof postForCheck.author !== "string" || postForCheck.author === "") {
-            console.log("Поле author пустое");
+        if (typeof postForCheck.author !== 'string' || postForCheck.author === '') {
+            console.log('Поле author пустое');
             return false;
         }
         if (!(postForCheck.createdAt instanceof Date) || ((postForCheck.createdAt).toString() === 'Invalid Date')) {
-            console.log("Поле даты создания не введено, либо имеет неправильную структуру");
+            console.log('Поле даты создания не введено, либо имеет неправильную структуру');
             return false;
         }
-        if (typeof postForCheck.photoLink !== "string" || postForCheck.photoLink === "") {
-            console.log("Поле photoLink пустое");
+        if (typeof postForCheck.photoLink !== 'string' || postForCheck.photoLink === '') {
+            console.log('Поле photoLink пустое');
             return false;
         }
         if (!(postForCheck.hashTags instanceof Array)) {
-            console.log("Структура поля hashTags не верна");
+            console.log('Структура поля hashTags не верна');
             return false;
         }
         return true;
     }
 
     function validateForEditing(postForCheck) {
-        if (typeof postForCheck.description !== "string" || postForCheck.description.length > 200 || postForCheck.description === "") {
-            console.log("Неверный description");
+        if (typeof postForCheck.description !== 'string' || postForCheck.description.length > 200 || postForCheck.description === '') {
+            console.log('Неверный description');
 
             return false;
         }
-        if (typeof postForCheck.author !== "string" || postForCheck.author === "") {
-            console.log("Поле author пустое");
+        if (typeof postForCheck.author !== 'string' || postForCheck.author === '') {
+            console.log('Поле author пустое');
             return false;
         }
         if (!(postForCheck.createdAt instanceof Date) || ((postForCheck.createdAt).toString() === 'Invalid Date')) {
-            console.log("Поле даты создания не введено, либо имеет неправильную структуру");
+            console.log('Поле даты создания не введено, либо имеет неправильную структуру');
             alert(postForCheck.createdAt);
             return false;
         }
-        if (typeof postForCheck.photoLink !== "string" || postForCheck.photoLink === "") {
-            console.log("Поле photoLink пустое");
+        if (typeof postForCheck.photoLink !== 'string' || postForCheck.photoLink === '') {
+            console.log('Поле photoLink пустое');
             return false;
         }
         if (!(postForCheck.hashTags instanceof Array)) {
-            console.log("Структура поля hashTags не верна");
+            console.log('Структура поля hashTags не верна');
             return false;
         }
         return true;
@@ -177,7 +177,7 @@ getAllPostFromLocalStorage();
     function removePhotoPost(idForRem) {
         var postOfId = getPhotoPost(idForRem);
         if (postOfId == null) {
-            console.log("Пост для удаления не найден");
+            console.log('Пост для удаления не найден');
             return false;
         }
         else {

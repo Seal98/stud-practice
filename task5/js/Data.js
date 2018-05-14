@@ -6,8 +6,8 @@ var basicPosts = [
         author: 'Misha',
         photoLink: 'img/naruto.png',
         postVisibility: true,
-        hashTags: ["#NARUTOBESTANIME"],
-        likes: ["Alex"]
+        hashTags: ['#NARUTOBESTANIME'],
+        likes: ['Alex']
     },
 
     {
@@ -17,8 +17,8 @@ var basicPosts = [
         author: 'Misha',
         photoLink: 'img/avatar.png',
         postVisibility: true,
-        hashTags: ["#AVATARBESTANIME"],
-        likes: ["Egor"]
+        hashTags: ['#AVATARBESTANIME'],
+        likes: ['Egor']
     }, {
         id: '3',
         description: 'SHAMAN-KING best anime',
@@ -26,8 +26,8 @@ var basicPosts = [
         author: 'Misha2019',
         photoLink: 'img/sham.png',
         postVisibility: true,
-        hashTags: ["#SHAMANKINGBESTANIME"],
-        likes: ["Pomeedorka"]
+        hashTags: ['#SHAMANKINGBESTANIME'],
+        likes: ['Pomeedorka']
     },
     {
         id: '4',
@@ -36,8 +36,8 @@ var basicPosts = [
         author: 'Misha20',
         photoLink: 'img/naruto.png',
         postVisibility: true,
-        hashTags: ["#NARUTOBESTANIME"],
-        likes: ["Jora"]
+        hashTags: ['#NARUTOBESTANIME'],
+        likes: ['Jora']
     },
     {
         id: '5',
@@ -46,8 +46,8 @@ var basicPosts = [
         author: 'Misha',
         photoLink: 'img/avatar.png',
         postVisibility: true,
-        hashTags: ["#AVATARBESTANIME"],
-        likes: ["Jaga"]
+        hashTags: ['#AVATARBESTANIME'],
+        likes: ['Jaga']
     },
     {
         id: '6',
@@ -56,8 +56,8 @@ var basicPosts = [
         author: 'Misha22',
         photoLink: 'img/sham.png',
         postVisibility: true,
-        hashTags: ["#SHAMANKINGBESTANIME"],
-        likes: ["Jaguar"]
+        hashTags: ['#SHAMANKINGBESTANIME'],
+        likes: ['Jaguar']
     },
     {
         id: '7',
@@ -66,8 +66,8 @@ var basicPosts = [
         author: 'Misha23',
         photoLink: 'img/naruto.png',
         postVisibility: true,
-        hashTags: ["#NARUTOBESTANIME"],
-        likes: ["Jagorka"]
+        hashTags: ['#NARUTOBESTANIME'],
+        likes: ['Jagorka']
     },
     {
         id: '8',
@@ -76,8 +76,8 @@ var basicPosts = [
         author: 'Misha',
         photoLink: 'img/avatar.png',
         postVisibility: true,
-        hashTags: ["#AVATARBESTANIME"],
-        likes: ["Igor"]
+        hashTags: ['#AVATARBESTANIME'],
+        likes: ['Igor']
     },
     {
         id: '9',
@@ -86,8 +86,8 @@ var basicPosts = [
         author: 'Misha',
         photoLink: 'img/sham.png',
         postVisibility: true,
-        hashTags: ["#SHAMANKINGBESTANIME"],
-        likes: ["Egr"]
+        hashTags: ['#SHAMANKINGBESTANIME'],
+        likes: ['Egr']
     },
 ];
 
