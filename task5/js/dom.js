@@ -150,7 +150,8 @@ var domBlockOfFunc = (function () {
     function deletePostDom(idOfButton) {
         var idOfPost = idOfButton.replace('del', '');
         mainBlockOfFunc.removePhotoPost(idOfPost);
-        localStorage.removeItem(mainBlockOfFunc.getPhotoPost(idOfPost));
+        removePostFromLocalStorage(idOfPost);
+
     }
 
     function addPhotoPostDom(post) {
