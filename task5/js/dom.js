@@ -1,6 +1,6 @@
 var domBlockOfFunc = (function () {
 
-    function authWindow() {
+    function createAuthWindow() {
         let windowForAuth = document.createElement('div');
         let authButton = document.getElementById('a-button');
         authButton.style.pointerEvents = 'none';
@@ -29,11 +29,11 @@ var domBlockOfFunc = (function () {
         posts.removeChild(adWindow);
     }
 
-    function editPostDomWindow(edButtonId) {
+    function createEditPostDomWindow(edButtonId) {
         let windowForEditing = document.createElement('div');
         let posts = document.getElementById('anime-header');
         windowForEditing.className = 'ed-window';
-        windowForEditing.id = 'ed-window'
+        windowForEditing.id = 'ed-window';
         var submitButtonId = edButtonId.replace('e', '');
         submitButtonId = 's' + submitButtonId;
         windowForEditing.innerHTML = `<div class='edit-header'><p class='user-name-edit'>${userName}</p>
@@ -50,7 +50,7 @@ var domBlockOfFunc = (function () {
         posts.appendChild(windowForEditing);
     }
 
-    function addPostWindow() {
+    function createAddPostWindow() {
         let windowForEditing = document.createElement('div');
         let posts = document.getElementById('anime-header');
         windowForEditing.className = 'ed-window';
@@ -191,7 +191,7 @@ var domBlockOfFunc = (function () {
         return `<div class='post-header'>
             <a href='#' class='delete-button' onclick='domBlockOfFunc.deletePostDom(this.id);return false;' id=${idOfDeleteButton} ><img src='img/cross.png' alt='Delete' title='Delete post' class='del-add-post-image'></a>
             <div class='post-hashtags'>${post.hashTags}</div>
-            <a href='#' class='edit-button' onclick='domBlockOfFunc.editPostDomWindow(this.id);return false;' id=${idOfEditButton}> <img src='img/brush.png' alt='Edit' title='Edit post' class='del-add-post-image'> </a>
+            <a href='#' class='edit-button' onclick='domBlockOfFunc.createEditPostDomWindow(this.id);return false;' id=${idOfEditButton}> <img src='img/brush.png' alt='Edit' title='Edit post' class='del-add-post-image'> </a>
             </div>
             <div class='post-body'>
             <img src=${post.photoLink} class='image-post'>  
@@ -260,13 +260,13 @@ var domBlockOfFunc = (function () {
         removePhotoPostDom,
         editPhotoPostDom,
         deletePostDom,
-        authWindow,
+        createAuthWindow,
         finishAuth,
         cancelAuth,
-        editPostDomWindow,
+        createEditPostDomWindow,
         cancelEditing,
         finishEditing,
-        addPostWindow,
+        createAddPostWindow,
         cancelAdding,
         finishAdding,
         addNewPhotoPostDom,
