@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel='stylesheet' type='text/css'>
+    <title>Title</title>
+</head>
+<body>
+
+<header>
+    <div class="main-header" id="anime-header">
+        <div class="logged-user" id="auth-block">
+            <button class="auth-button" id="a-button" onclick="domBlockOfFunc.createAuthWindow();return false;">
+                Авторизация
+            </button>
+        </div>
+    </div>
+</header>
+<aside class="filter-page-part">
+    <div class="question-user">
+        А какое аниме смотрел сегодня ты?
+    </div>
+    <div class="filters-block">
+        <div class="filter-input-part">
+
+            <div class="filter-single">
+                <div class="cb">
+                    <input id="cb-author" type="checkbox">
+                </div>
+                <div class="label-filter">
+                    <label class="text-of-filters">по имени автора</label>
+                </div>
+                <div>
+                    <input type="text" id="text-field-filter-author" class="filter-text-input">
+                </div>
+            </div>
+            <div class="filter-single">
+                <div class="cb">
+                    <input id="cb-date" type="checkbox">
+                </div>
+                <div class="label-filter">
+                    <label class="text-of-filters">по дате</label>
+                </div>
+                <div>
+                    <input type="text" id="text-field-filter-date" class="filter-text-input">
+                </div>
+            </div>
+            <div class="filter-single">
+                <div class="cb">
+                    <input id="cb-hashtag" type="checkbox">
+                </div>
+                <div class="label-filter">
+                    <label class="text-of-filters">по хештегу</label>
+                </div>
+                <div>
+                    <input type="text" id="text-field-filter-hashtags" class="filter-text-input">
+                </div>
+            </div>
+        </div>
+        <div class="block-filter-button">
+            <button class="filter-button" onclick="domBlockOfFunc.filterWindow();return false;">
+                Фильтр
+            </button>
+        </div>
+    </div>
+    <button class="add-post-button" id="add-post-button" onclick="domBlockOfFunc.createAddPostWindow();return false;">
+        Добавить пост
+    </button>
+
+</aside>
+<main>
+    <div class="cards" id="posts"></div>
+    <footer>
+        <div class="main-footer">
+            <div class="text-footer-date">AnimeClub &nbsp&nbsp March 10, 2018</div>
+            <div class="text-footer-creator">Aliaksei Karpau, 6group, fpm.karpovAI@bsu.by</div>
+        </div>
+    </footer>
+</main>
+<script src="js/Data.js"></script>
+<script src="js/dom.js"></script>
+<script src="js/script.js"></script>
+</body>
+
+
+</html>
