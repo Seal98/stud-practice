@@ -1,0 +1,25 @@
+{
+  "name": "tasknodejs",
+  "version": "1.0.0",
+  "description": "Project1",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seal98/stud-practice.git"
+  },
+  "keywords": [
+    "Project1"
+  ],
+  "author": "A-Legan",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Seal98/stud-practice/issues"
+  },
+  "homepage": "https://github.com/Seal98/stud-practice#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
